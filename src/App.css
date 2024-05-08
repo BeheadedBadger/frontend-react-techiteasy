@@ -1,0 +1,41 @@
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 10px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.card {
+    border: 2px solid;
+    border-radius: 0 20px 0 20px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.card-red {
+    border-color: hotpink;
+}
+
+.card-green {
+    border-color: greenyellow;
+}
+
+.card-blue {
+    border-color: cyan;
+}
+
+.card-colourless {
+    border-color: grey;
+    border-style: dashed;
+}
