@@ -11,22 +11,20 @@ function App() {
   return (
       <div className="background">
           <div className="main">
-              <h1>Tech it easy dashboard</h1>
-              <hr/>
-
+              <h1>TECH IT EASY</h1>
               <h2>Verkoopoverzicht</h2>
               <div className="card-container">
                   <div className="card card-green">
-                      <p>Aantal verkochte producten</p>
-                      <h2 className="green-text">{sold()}</h2>
+                      <p>Aantal verkocht:</p>
+                      <h2 className="card-text green-text">{sold()}</h2>
                   </div>
                   <div className="card card-blue">
-                      <p>Aantal ingekochte producten</p>
-                      <h2 className="blue-text">{bought()}</h2>
+                      <p>Aantal ingekocht:</p>
+                      <h2 className="card-text blue-text">{bought()}</h2>
                   </div>
                   <div className="card card-red">
-                      <p>Aantal te verkopen producten</p>
-                      <h2 className="red-text">{remainingTvs()}</h2>
+                      <p>Aantal te verkopen:</p>
+                      <h2 className="card-text red-text">{remainingTvs()}</h2>
                   </div>
               </div>
               <hr/>
