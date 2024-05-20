@@ -12,6 +12,7 @@
 
     margin: 10px;
     font-family: "Ubuntu", sans-serif;
+    list-style-type: none;
 }
 
 
@@ -119,6 +120,7 @@ hr {
     border-color: var(--secondary-text-colour);
     border-style: dashed;
     width: 90%;
+    flex-direction: row;
 }
 
 .card-colourless p {
@@ -126,4 +128,37 @@ hr {
     margin: 5px;
     line-height: 15px;
     text-align: center;
+}
+
+.feature-container {
+    vertical-align: middle;
+}
+
+.feature-container img {
+    vertical-align: middle;
+    margin-right: 2px;
+}
+
+.feature-container p {
+    vertical-align: middle;
+}
+
+button {
+    border-radius: 50px;
+    width: 250px;
+    height: 50px;
+    background-color: var(--text-colour);
+    color: var(--bg-colour);
+    border: 0;
+    font-weight: bolder;
+}
+
+button:hover {
+    background-color: var(--cyan);
+    color: var(--bg-colour);
+}
+
+button:active {
+    background-color: var(--bg-colour);
+    color: var(--text-colour)
 }
