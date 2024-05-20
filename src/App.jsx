@@ -6,39 +6,33 @@ import remainingTvs from "./helpers/remainingTvs.js";
 import {showAsEuros} from "./helpers/showAsEuros.js";
 import {bestSellingTv, inventory} from "./constants/inventory.js";
 import {showAsScreenSizes} from "./helpers/showAsScreenSizes.js";
+import {useState} from "react";
 
 function App() {
 
-    function sortOnPriceLowToHigh() {
-        inventory.sort((a, b) => {
-            return a.price - b.price;
-        });
-
-        ShowAllTvs();
+    const [isShownPrice, showItemsSortedByPrice] = useState(false);
+    const handleClickPrice = function () {
+        showItemsSortedByBestSold(false);
+        showItemsSortedByPrice(true);
+        showItemsSortedByBestForSports(false);
     }
 
-    function sortOnBestSoldFirst() {
-        inventory.sort((a, b) => {
-            return b.sold - a.sold;
-        });
 
-        ShowAllTvs();
+    const [isShownBestSeller, showItemsSortedByBestSold] = useState(false);
+    const handleClickBestSeller = function () {
+        showItemsSortedByBestSold(true);
+        showItemsSortedByPrice(false);
+        showItemsSortedByBestForSports(false);
     }
 
-    function sortOnBestForSportFirst() {
-        inventory.sort((a, b) => {
-            return b.refreshRate - a.refreshRate;
-        });
-
-        ShowAllTvs();
+    const [isShowBestForSports, showItemsSortedByBestForSports] = useState(false);
+    const handleClickSports = function () {
+        showItemsSortedByBestSold(false);
+        showItemsSortedByPrice(false);
+        showItemsSortedByBestForSports(true);
     }
 
-    function ShowAllTvs() {
-
-        inventory.sort((a, b) => {
-            return b.sold - a.sold;
-        });
-
+    function showTvs() {
         const listItems = inventory.map(item =>
             <li key={item.name}>
                 <div className="card card-colourless">
@@ -55,6 +49,31 @@ function App() {
         );
 
         return <ul>{listItems}</ul>;
+    }
+
+    function ShowByBestSeller() {
+        inventory.sort((a, b) => {
+            return b.sold - a.sold;
+        });
+
+        return showTvs();
+    }
+
+    function ShowByPrice() {
+
+        inventory.sort((a, b) => {
+            return a.price - b.price;
+        });
+
+        return showTvs();
+    }
+
+    function ShowByBestForSports() {
+        inventory.sort((a, b) => {
+            return b.refreshRate - a.refreshRate;
+        });
+
+        return showTvs();
     }
 
     return (
@@ -83,32 +102,47 @@ function App() {
                     <div className="card card-colourless">
                         <div className="image-container">
                             <img src={bestSellingTv.sourceImg} alt="Bestseller image" width="250"/>
-                      </div>
-                      <article>
-                          <p>{title()}</p>
-                          <p>{showAsEuros(bestSellingTv.price)}</p>
-                          <p>{showAsScreenSizes(bestSellingTv.availableSizes)}</p>
-                          <div className="feature-container">
-                              <p><img src="../src/assets/check.png" alt="icon" width="16"/> wifi
-                                  <img src="../src/assets/minus.png" alt="icon" width="16"/> speech
-                                  <img src="../src/assets/check.png" alt="icon" width="16"/> hdr
-                                  <img src="../src/assets/check.png" alt="icon" width="16"/> bluetooth
-                                  <img src="../src/assets/minus.png" alt="icon" width="16"/> ambilight</p>
-                          </div>
-                      </article>
-                  </div>
-              </div>
-          </div>
+                        </div>
+                        <article>
+                            <p>{title()}</p>
+                            <p>{showAsEuros(bestSellingTv.price)}</p>
+                            <p>{showAsScreenSizes(bestSellingTv.availableSizes)}</p>
+                            <div className="feature-container">
+                                <p><img src="../src/assets/check.png" alt="icon" width="16"/> wifi
+                                    <img src="../src/assets/minus.png" alt="icon" width="16"/> speech
+                                    <img src="../src/assets/check.png" alt="icon" width="16"/> hdr
+                                    <img src="../src/assets/check.png" alt="icon" width="16"/> bluetooth
+                                    <img src="../src/assets/minus.png" alt="icon" width="16"/> ambilight</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
 
             <article className="main">
                 <article className="card-container">
-                    <button onClick={sortOnBestSoldFirst}>Meest verkocht eerst</button>
-                    <button onClick={sortOnPriceLowToHigh}>Goedkoopste eerst</button>
-                    <button onClick={sortOnBestForSportFirst}>Meest geschikt voor sport eerst</button>
+                    <button onClick={handleClickBestSeller}>Meest verkocht eerst</button>
+                    <button onClick={handleClickPrice}>Goedkoopste eerst</button>
+                    <button onClick={handleClickSports}>Meest geschikt voor sport eerst</button>
                 </article>
 
+                {isShownPrice && (
+                    <div>
+                        {ShowByPrice()}
+                    </div>
+                )}
 
-                {ShowAllTvs()}
+                {isShownBestSeller && (
+                    <div>
+                        {ShowByBestSeller()}
+                    </div>
+                )}
+
+                {isShowBestForSports && (
+                    <div>
+                        {ShowByBestForSports()}
+                    </div>
+                )}
             </article>
         </div>
     );
