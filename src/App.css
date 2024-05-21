@@ -132,6 +132,8 @@ hr {
 
 .feature-container {
     vertical-align: middle;
+    display: flex;
+    flex-direction: row;
 }
 
 .feature-container img {

@@ -7,6 +7,7 @@ import {showAsEuros} from "./helpers/showAsEuros.js";
 import {bestSellingTv, inventory} from "./constants/inventory.js";
 import {showAsScreenSizes} from "./helpers/showAsScreenSizes.js";
 import {useState} from "react";
+import Feature from "./components/feature/Feature.jsx";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
     }
 
     function showTvs() {
+
         const listItems = inventory.map(item =>
             <li key={item.name}>
                 <div className="card card-colourless">
@@ -43,10 +45,17 @@ function App() {
                         <p>{item.name}</p>
                         <p>{showAsEuros(item.price)}</p>
                         <p>{showAsScreenSizes(item.availableSizes)}</p>
+                        <div className="feature-container">
+                                <Feature hasFeature={item.options[0].applicable} title={item.options[0].name}/>
+                                <Feature hasFeature={item.options[1].applicable} title={item.options[1].name}/>
+                                <Feature hasFeature={item.options[2].applicable} title={item.options[2].name}/>
+                                <Feature hasFeature={item.options[3].applicable} title={item.options[3].name}/>
+                                <Feature hasFeature={item.options[4].applicable} title={item.options[4].name}/>
+                        </div>
                     </article>
                 </div>
             </li>
-        );
+        )
 
         return <ul>{listItems}</ul>;
     }
@@ -107,12 +116,12 @@ function App() {
                             <p>{title()}</p>
                             <p>{showAsEuros(bestSellingTv.price)}</p>
                             <p>{showAsScreenSizes(bestSellingTv.availableSizes)}</p>
-                            <div className="feature-container">
-                                <p><img src="../src/assets/check.png" alt="icon" width="16"/> wifi
-                                    <img src="../src/assets/minus.png" alt="icon" width="16"/> speech
-                                    <img src="../src/assets/check.png" alt="icon" width="16"/> hdr
-                                    <img src="../src/assets/check.png" alt="icon" width="16"/> bluetooth
-                                    <img src="../src/assets/minus.png" alt="icon" width="16"/> ambilight</p>
+                            <div className = "feature-container">
+                                <Feature hasFeature={bestSellingTv.options[0]} title={bestSellingTv.options[0].name}/>
+                                <Feature hasFeature={bestSellingTv.options[1]} title={bestSellingTv.options[1].name}/>
+                                <Feature hasFeature={bestSellingTv.options[2]} title={bestSellingTv.options[2].name}/>
+                                <Feature hasFeature={bestSellingTv.options[3]} title={bestSellingTv.options[3].name}/>
+                                <Feature hasFeature={bestSellingTv.options[4]} title={bestSellingTv.options[4].name}/>
                             </div>
                         </article>
                     </div>
