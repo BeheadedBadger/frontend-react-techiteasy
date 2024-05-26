@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=Poppins&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    --bg-colour: #1F1418;
+    --secondary-bg-colour: #2c1f25;
+    --text-colour: #E7DFE1;
+    --secondary-text-colour: #AE8D99;
+    --yellow: #F2B367;
+    --salmon: #E57C79;
+    --purple: #9A78CC;
+    --cyan: #49AB8D;
+
+    margin: 10px;
+    font-family: "Ubuntu", sans-serif;
+    list-style-type: none;
+}
+
+
+body {
+    width: auto;
+    height: auto;
+    background-color: var(--bg-colour);
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    background-color: var(--secondary-bg-colour);
+    display: flex;
+    flex-direction: column;
+    min-width: 90%;
+    max-height: 90%;
+    border-radius: 0 30px 0 30px;
+    padding: 30px 70px;
+    box-shadow: 2px 2px 20px rgba(23, 1, 11, 0.75);
+}
+
+h1 {
+    color: var(--bg-colour);
+    font-size: 40px;
+    font-weight: bolder;
+    /*text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);*/
+    text-align: center;
+    padding: 20px;
+    background-color: var(--yellow);
+    border-radius: 0 50px 0 50px;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+    color: #E7E4E0;
+}
+
+p {
+    font-size: 15px;
+    color: var(--text-colour);
+}
+
+hr {
+    width: 80%;
+    align-self: center;
+}
+
+.card-text {
+    font-size: 40px;
+    border: var(--text-colour) solid 2px;
+    border-radius: 30px;
+    background-color: var(--text-colour);
+    width: 75%;
+}
+
+.green-text {
+    color: var(--cyan);
+}
+
+.blue-text {
+    color: var(--purple);
+}
+
+.red-text {
+    color: var(--salmon);
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card {
+    border: 3px solid;
+    border-radius: 0 20px 0 20px;
+    padding: 20px;
+    margin: 10px 10px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    width: 30%;
+}
+
+.card-red {
+    border-color: var(--salmon);
+    background-color: var(--salmon);
+}
+
+.card-green {
+    border-color: var(--cyan);
+    background-color: var(--cyan);
+}
+
+.card-blue {
+    border-color: var(--purple);
+    background-color: var(--purple);
+}
+
+.card-colourless {
+    border-color: var(--secondary-text-colour);
+    border-style: dashed;
+    width: 90%;
+    flex-direction: row;
+}
+
+.card-colourless p {
+    color: var(--secondary-text-colour);
+    margin: 5px;
+    line-height: 15px;
+    text-align: center;
+}
+
+.feature-container {
+    vertical-align: middle;
+    display: flex;
+    flex-direction: row;
+}
+
+.feature-container img {
+    vertical-align: middle;
+    margin-right: 2px;
+}
+
+.feature-container p {
+    vertical-align: middle;
+}
+
+button {
+    border-radius: 50px;
+    width: 250px;
+    height: 50px;
+    background-color: var(--text-colour);
+    color: var(--bg-colour);
+    border: 0;
+    font-weight: bolder;
+}
+
+button:hover {
+    background-color: var(--cyan);
+    color: var(--bg-colour);
+}
+
+button:active {
+    background-color: var(--bg-colour);
+    color: var(--text-colour)
+}
